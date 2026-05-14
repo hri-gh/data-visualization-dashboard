@@ -1,0 +1,19 @@
+export interface Insight {
+    end_year: number | null;
+    intensity: number | null;
+    sector: string | null;
+    topic: string | null;
+    insight: string | null;
+    url: string | null;
+    region: string | null;
+    start_year: string | null;
+    impact: number | null;
+    added: string | null;
+    published: string | null;
+    country: string | null;
+    relevance: number | null;
+    pestle: string | null;
+    source: string | null;
+    title: string | null;
+    likelihood: number | null;
+}
