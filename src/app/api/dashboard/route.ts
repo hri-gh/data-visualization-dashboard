@@ -3,7 +3,7 @@ import { NextRequest } from "next/server";
 import { ApiResponse } from "@/lib/api/response";
 import { handleError } from "@/lib/errors/handle-error";
 
-import { getDashboardData } from "@/services/dashboard.service";
+import { getDashboardOverview } from "@/services/dashboard.service";
 
 export async function GET(request: NextRequest) {
     try {
@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
         // console.log("[Search params]", searchParams)
 
         const filters = {
-            end_year: searchParams.get("end_year") || undefined,
+            end_year: searchParams.get("end_year") ? Number(searchParams.get("end_year")) : undefined,
             topic: searchParams.get("topic") || undefined,
             sector: searchParams.get("sector") || undefined,
             region: searchParams.get("region") || undefined,
@@ -22,7 +22,7 @@ export async function GET(request: NextRequest) {
         };
 
         // console.log("[Filters]", filters)
-        const data = await getDashboardData(filters);
+        const data = await getDashboardOverview(filters);
 
         return ApiResponse.success(data);
 

@@ -13,7 +13,11 @@ export function buildDashboardQuery(filters: DashboardFilters) {
 
     Object.entries(filters).forEach(([key, value]) => {
         if (value) {
-            query[key] = value;
+            if (key === "end_year" && typeof value === "string") {
+                query[key] = Number(value);
+            } else {
+                query[key] = value;
+            }
         }
     });
 
