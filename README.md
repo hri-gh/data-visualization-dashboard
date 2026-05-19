@@ -46,7 +46,7 @@ The dashboard visualizes insights from a JSON dataset using multiple charts and 
 - Country
 
 
-## Installation
+# Installation
 
 - Downoad the zip and unzip the file
 - Open the terminal and run the following commands:
@@ -59,9 +59,7 @@ npm install
 
 # Environment Variables
 
-```md id="rmd8"
-## Environment Variables
-```
+
 Create a `.env.local` file in the root directory:
 
 ```env
@@ -71,13 +69,8 @@ MONGODB_URI=your_mongodb_connection_string
 
 # Database Seeding
 
-VERY important because assignment reviewer may run it.
+ Seed Database
 
-Example:
-
-```md id="rmd9"
-## Seed Database
-```
 Run the following command to seed the MongoDB database:
 
 ```bash
@@ -87,10 +80,8 @@ npm run seed
 ---
 
 # Run Project
+ Run Development Server
 
-```md id="rmd10"
-## Run Development Server
-```
 ```bash
 npm run dev
 ```
@@ -99,15 +90,7 @@ Open: http://localhost:3000
 
 ---
 
-# 8. API Endpoints
-
-This is GOOD because assignment explicitly asked APIs.
-
-Example:
-
-```md id="rmd11"
-## API Endpoints
-```
+# API Endpoints
 ### Get Dashboard Data
 
 ```txt
@@ -122,15 +105,8 @@ GET /api/dashboard/filters
 
 ---
 
-# 9. Folder Structure (Optional but GOOD)
+# Folder Structure
 
-Keep SHORT.
-
-Example:
-
-```md id="rmd12"
-## Project Structure
-```
 ```txt
 src/
 ├── app/
