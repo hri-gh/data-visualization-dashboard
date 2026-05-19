@@ -5,7 +5,6 @@ declare global {
 }
 
 const uri = process.env.MONGODB_URI!;
-console.log(uri, "#####################URI#####################");
 const options = {};
 
 let client: MongoClient;

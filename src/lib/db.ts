@@ -4,7 +4,7 @@ import type { Insight } from "@/types/insight.types";
 export async function getDatabase() {
     const client = await clientPromise;
     const db = client.db("dashboard");
-    console.log("#####################Database Connected#####################");
+    console.log("##Database Connected##");
     return db;
 }
 

@@ -3,11 +3,10 @@
 import { useActionState } from "react";
 import { verifyAccessCode } from "@/actions/access.actions";
 
-import { Button } from "@/components/ui/button";
 
 export default function AccessPage() {
     const [state, formAction, isPending] = useActionState(
-        async (prevState: any, formData: FormData) => {
+        async (_prevState: unknown, formData: FormData) => {
             return await verifyAccessCode(formData);
         },
         null

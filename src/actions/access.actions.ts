@@ -30,5 +30,5 @@ export async function verifyAccessCode(
         }
     );
 
-    redirect("/");
+    redirect("/dashboard");
 }
