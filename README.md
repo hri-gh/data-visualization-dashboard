@@ -1,36 +1,146 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Data Visualization Dashboard
+An interactive data visualization dashboard built with Next.js, MongoDB, and Recharts.
 
-## Getting Started
+The dashboard visualizes insights from a JSON dataset using multiple charts and supports dynamic filtering across sectors, topics, countries, years, and more.
 
-First, run the development server:
+## Tech Stack
+
+- Next.js 15
+- TypeScript
+- MongoDB
+- MongoDB Native Driver
+- Recharts
+- Tailwind CSS
+- shadcn/ui
+
+
+## Features
+
+- Interactive analytics dashboard
+- Dynamic filtering system
+- Multiple chart visualizations
+- MongoDB aggregation pipelines
+- URL-based filter state management
+- Responsive dashboard layout
+- Server-side data fetching
+
+
+## Visualizations
+
+- Average Intensity by Sector (Horizontal Bar Chart)
+- Topic Distribution (Donut Chart)
+- Relevance Over Years (Line Chart)
+- Top Countries by Relevance (Bar Chart)
+- Sector Performance Analysis (Radar Chart)
+
+
+## Dashboard Filters
+
+- End Year
+- Topic
+- Sector
+- Region
+- PESTLE
+- Source
+- SWOT
+- Country
+
+
+## Installation
+
+- Downoad the zip and unzip the file
+- Open the terminal and run the following commands:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```md id="rmd8"
+## Environment Variables
+```
+Create a `.env.local` file in the root directory:
 
-## Learn More
+```env
+MONGODB_URI=your_mongodb_connection_string
+```
+---
 
-To learn more about Next.js, take a look at the following resources:
+# Database Seeding
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+VERY important because assignment reviewer may run it.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Example:
 
-## Deploy on Vercel
+```md id="rmd9"
+## Seed Database
+```
+Run the following command to seed the MongoDB database:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run seed
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+# Run Project
+
+```md id="rmd10"
+## Run Development Server
+```
+```bash
+npm run dev
+```
+Open: http://localhost:3000
+
+
+---
+
+# 8. API Endpoints
+
+This is GOOD because assignment explicitly asked APIs.
+
+Example:
+
+```md id="rmd11"
+## API Endpoints
+```
+### Get Dashboard Data
+
+```txt
+GET /api/dashboard
+```
+
+### Get Dashboard Filters
+```txt
+GET /api/dashboard/filters
+```
+
+
+---
+
+# 9. Folder Structure (Optional but GOOD)
+
+Keep SHORT.
+
+Example:
+
+```md id="rmd12"
+## Project Structure
+```
+```txt
+src/
+├── app/
+├── components/
+├── services/
+├── lib/
+├── scripts/
+├── types/
+```
+
+## Live Demo
+
+[View Live Project](https://your-project-url.vercel.app)
