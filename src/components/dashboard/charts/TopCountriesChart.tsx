@@ -21,34 +21,35 @@ export default function TopCountriesChart({
     data,
 }: Props) {
     return (
-        <div className="h-[500px] w-full">
-            <ResponsiveContainer width="100%" height={400}>
+        <div className="w-full h-[340px]">
+            <ResponsiveContainer width="100%" height="100%">
                 <BarChart
                     data={data}
                     layout="vertical"
                     margin={{
-                        top: 20,
+                        top: 15,
                         right: 30,
-                        left: 40,
-                        bottom: 20,
+                        left: 10,
+                        bottom: 10,
                     }}
                 >
-                    <CartesianGrid strokeDasharray="3 3" />
+                    <CartesianGrid strokeDasharray="3 3" horizontal={false} />
 
-                    <XAxis type="number" />
+                    <XAxis type="number" tick={{ fontSize: 12 }} />
 
                     <YAxis
                         type="category"
                         dataKey="country"
-                        width={120}
+                        width={110}
+                        tick={{ fontSize: 12 }}
                     />
 
                     <Tooltip />
 
                     <Bar
                         dataKey="averageRelevance"
-                        fill="#82ca9d"
-                        radius={[0, 6, 6, 0]}
+                        fill="#10b981"
+                        radius={[0, 4, 4, 0]}
                     />
                 </BarChart>
             </ResponsiveContainer>

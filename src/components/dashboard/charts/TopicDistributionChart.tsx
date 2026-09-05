@@ -74,34 +74,37 @@ const data = [
 
 export default function TopicDistributionChart({ data }: Props) {
     return (
-        // <div className="h-125 w-full">
-        <ResponsiveContainer width="100%" height={400}>
-            <PieChart>
-                <Pie
-                    data={data}
-                    dataKey="count"
-                    nameKey="topic"
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={80}
-                    outerRadius={140}
-                    paddingAngle={3}
-                >
-                    {data.map((_, index) => (
-                        <Cell
-                            key={`cell-${index}`}
-                            fill={
-                                COLORS[index % COLORS.length]
-                            }
-                        />
-                    ))}
-                </Pie>
+        <div className="w-full h-[380px]">
+            <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                    <Pie
+                        data={data}
+                        dataKey="count"
+                        nameKey="topic"
+                        cx="50%"
+                        cy="45%"
+                        innerRadius={60}
+                        outerRadius={95}
+                        paddingAngle={3}
+                    >
+                        {data.map((_, index) => (
+                            <Cell
+                                key={`cell-${index}`}
+                                fill={
+                                    COLORS[index % COLORS.length]
+                                }
+                            />
+                        ))}
+                    </Pie>
 
-                <Tooltip />
+                    <Tooltip />
 
-                <Legend />
-            </PieChart>
-        </ResponsiveContainer>
-        // </div>
+                    <Legend
+                        verticalAlign="bottom"
+                        wrapperStyle={{ paddingTop: "8px", fontSize: "11px" }}
+                    />
+                </PieChart>
+            </ResponsiveContainer>
+        </div>
     );
 }

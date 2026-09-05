@@ -97,47 +97,40 @@ const chartConfig: ChartConfig = {
 
 export default function IntensityBySectorChart({ data }: IntensityChartProps) {
     return (
-        <div className="h-125 w-full">
-            {/* <ChartContainer config={chartConfig} > */}
-            <ResponsiveContainer width="100%" height={600}>
+        <div className="w-full h-[380px]">
+            <ResponsiveContainer width="100%" height="100%">
                 <BarChart
                     data={data}
                     layout="vertical"
                     margin={{
-                        top: 20,
+                        top: 10,
                         right: 30,
-                        left: 40,
-                        bottom: 20,
+                        left: 10,
+                        bottom: 10,
                     }}
                 >
-                    <CartesianGrid strokeDasharray="3 3" />
-
-                    <XAxis
-                        type="number"
-                    />
-
+                    <CartesianGrid strokeDasharray="3 3" horizontal={false} />
+                    <XAxis type="number" tick={{ fontSize: 12 }} />
                     <YAxis
                         type="category"
                         dataKey="sector"
-                        width={180}
+                        width={140}
+                        tick={{ fontSize: 12 }}
                     />
-
                     <Tooltip />
-
                     <Bar
                         dataKey="averageIntensity"
-                        radius={[0, 6, 6, 0]}
+                        radius={[0, 4, 4, 0]}
                     >
                         {data.map((entry, index) => (
                             <Cell
                                 key={`cell-${index}`}
-                                fill="#8884d8"
+                                fill="#6366f1"
                             />
                         ))}
                     </Bar>
                 </BarChart>
             </ResponsiveContainer>
-            {/* </ChartContainer> */}
         </div>
     );
 }

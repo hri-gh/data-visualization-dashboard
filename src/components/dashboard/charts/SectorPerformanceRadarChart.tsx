@@ -24,18 +24,18 @@ export default function SectorPerformanceRadarChart({
     data,
 }: Props) {
     return (
-        <div className="h-[500px] w-full">
-            <ResponsiveContainer width="100%" height={400}>
-                <RadarChart data={data}>
+        <div className="w-full h-[380px]">
+            <ResponsiveContainer width="100%" height="100%">
+                <RadarChart data={data} margin={{ top: 20, right: 30, bottom: 20, left: 30 }}>
                     <PolarGrid />
 
-                    <PolarAngleAxis dataKey="sector" />
+                    <PolarAngleAxis dataKey="sector" tick={{ fontSize: 11 }} />
 
-                    <PolarRadiusAxis />
+                    <PolarRadiusAxis tick={{ fontSize: 10 }} />
 
                     <Tooltip />
 
-                    <Legend />
+                    <Legend wrapperStyle={{ paddingTop: "10px", fontSize: "12px" }} />
 
                     <Radar
                         name="Intensity"

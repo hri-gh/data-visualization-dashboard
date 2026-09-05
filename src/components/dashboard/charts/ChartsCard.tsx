@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import IntensityBySectorChart from "./IntensityBySectorChart";
 import TopicDistributionChart from "./TopicDistributionChart";
 import RelevanceOverYearsChart from "./RelevanceOverYearsChart";
@@ -30,67 +30,66 @@ interface ChartsCardProps {
             averageLikelihood: number;
         }[];
     };
-};
+}
 
 export default function ChartsCard({ data }: ChartsCardProps) {
-    // console.log("@@ ChartsCard Data : ", data);
     return (
-        <div>
-            <div className="mx-3 grid grid-cols-1 lg:grid-cols-2 gap-4">
-
-
-                <Card>
-                    <CardHeader>
-                        <CardTitle className="text-center font-bold">Average Intensity by Sector</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <IntensityBySectorChart data={data.intensityBySector} />
-                    </CardContent>
-                </Card>
-
-                <Card>
-                    <CardHeader>
-                        <CardTitle className="text-center font-bold">Topic Distribution</CardTitle>
-                    </CardHeader>
-
-                    <CardContent>
-                        <TopicDistributionChart data={data.topicDistribution} />
-                    </CardContent>
-                </Card>
-
-                <Card>
-                    <CardHeader>
-                        <CardTitle className="text-center font-bold">Relevance Over Years</CardTitle>
-                    </CardHeader>
-
-                    <CardContent>
-                        <RelevanceOverYearsChart data={data.relevanceOverYears} />
-                    </CardContent>
-                </Card>
-
-                <Card>
-                    <CardHeader>
-                        <CardTitle className="text-center font-bold">Top Countries by Relevance</CardTitle>
-                    </CardHeader>
-
-                    <CardContent>
-                        <TopCountriesChart data={data.topCountriesByRelevance} />
-                    </CardContent>
-                </Card>
-
-            </div>
-
-            <Card className="m-3">
+        <div className="mx-3 grid grid-cols-1 lg:grid-cols-12 gap-6">
+            {/* Bar Chart - Average Intensity by Sector (Wider: 7 cols) */}
+            <Card className="lg:col-span-7 flex flex-col justify-between shadow-sm">
                 <CardHeader>
-                    <CardTitle className="text-center font-bold">Sector Performance</CardTitle>
+                    <CardTitle className="text-base font-semibold">Average Intensity by Sector</CardTitle>
+                    <CardDescription>Intensity distribution across industry sectors</CardDescription>
                 </CardHeader>
-
-                <CardContent>
-                    <SectorPerformanceRadarChart data={data.sectorPerformance} />
+                <CardContent className="pt-2">
+                    <IntensityBySectorChart data={data.intensityBySector} />
                 </CardContent>
             </Card>
 
+            {/* Pie / Donut Chart - Topic Distribution (Compact: 5 cols) */}
+            <Card className="lg:col-span-5 flex flex-col justify-between shadow-sm">
+                <CardHeader>
+                    <CardTitle className="text-base font-semibold">Topic Distribution</CardTitle>
+                    <CardDescription>Breakdown of top topics and occurrences</CardDescription>
+                </CardHeader>
+                <CardContent className="pt-2">
+                    <TopicDistributionChart data={data.topicDistribution} />
+                </CardContent>
+            </Card>
 
+            {/* Line Chart - Relevance Over Years (Timeline: 7 cols) */}
+            <Card className="lg:col-span-7 flex flex-col justify-between shadow-sm">
+                <CardHeader>
+                    <CardTitle className="text-base font-semibold">Relevance Over Years</CardTitle>
+                    <CardDescription>Historical trend of average relevance over time</CardDescription>
+                </CardHeader>
+                <CardContent className="pt-2">
+                    <RelevanceOverYearsChart data={data.relevanceOverYears} />
+                </CardContent>
+            </Card>
+
+            {/* Bar Chart - Top Countries by Relevance (Ranking: 5 cols) */}
+            <Card className="lg:col-span-5 flex flex-col justify-between shadow-sm">
+                <CardHeader>
+                    <CardTitle className="text-base font-semibold">Top Countries by Relevance</CardTitle>
+                    <CardDescription>Highest scoring countries by relevance metric</CardDescription>
+                </CardHeader>
+                <CardContent className="pt-2">
+                    <TopCountriesChart data={data.topCountriesByRelevance} />
+                </CardContent>
+            </Card>
+
+            {/* Radar Chart - Sector Performance (Full-width: 12 cols) */}
+            <Card className="lg:col-span-12 shadow-sm">
+                <CardHeader>
+                    <CardTitle className="text-base font-semibold">Sector Performance Analysis</CardTitle>
+                    <CardDescription>Multi-metric comparison (Intensity, Relevance, Likelihood) across sectors</CardDescription>
+                </CardHeader>
+                <CardContent className="pt-2">
+                    <SectorPerformanceRadarChart data={data.sectorPerformance} />
+                </CardContent>
+            </Card>
         </div>
     );
 }
+

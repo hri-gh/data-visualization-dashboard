@@ -13,7 +13,9 @@ interface DashboardStatsProps {
 export default function DashboardStats({ data }: DashboardStatsProps) {
     return (
         <div className="mx-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-            <StatCard title="Total Insights" value={data.totalInsights}
+            <StatCard    
+                title="Total Insights" 
+                value={data.totalInsights}
                 className="border-l-4 border-l-amber-500"
                 icon={<ChartNoAxesColumnIncreasing className="text-amber-500" />}
 
